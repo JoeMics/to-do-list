@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+button {
+  font-size: 1.25rem;
+}
+
 html,
 body {
   height: 100%;
@@ -26,8 +30,9 @@ input[type=checkbox] {
   background-color: transparent;
 }
 
-.to-do-list__input,
+#to-do-list__input,
 .to-do-list__items {
+  color: #534C71;
   width: 100%;
 }
 
@@ -44,6 +49,17 @@ input[type=checkbox] {
   margin-left: 2em;
 }
 
+.to-do-list__input__add:hover,
+.to-do-list__items__item__delete:hover,
+.to-do-list__items__item__edit:hover {
+  text-shadow: 0.5px 0.5px 1px #d6c7c7;
+}
+.to-do-list__input__add:active,
+.to-do-list__items__item__delete:active,
+.to-do-list__items__item__edit:active {
+  text-shadow: 0.5px 0.5px 3px #d6c7c7;
+}
+
 .to-do-list {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #9381FF;
@@ -53,14 +69,14 @@ input[type=checkbox] {
 }
 
 .to-do-list__input {
-  height: 2em;
   background-color: #FFF;
   margin-top: 1em;
   margin-bottom: 1em;
 }
 .to-do-list__input input[type=text] {
+  font-size: 1.75rem;
   background: transparent;
-  padding-left: 1em;
+  padding: 0.5em 0 0.5em 1em;
   border: none;
   outline: none;
   flex-grow: 1;
@@ -75,9 +91,14 @@ input[type=checkbox] {
 .to-do-list__items__item {
   align-items: center;
   padding: 0.1em 0.8em;
+  font-size: 1.25rem;
 }
 .to-do-list__items__item input[type=checkbox] {
   margin-right: 1.5em;
+}
+
+.to-do-list__items__item__checkbox:hover {
+  box-shadow: 0.5px 0.5px 2px;
 }
 
 .to-do-list__items__item__text {
@@ -90,9 +111,16 @@ input[type=checkbox] {
 
 .to-do-list__clear-all {
   align-self: flex-end;
-  padding: 0.5em 1em;
+  padding: 0.75em 1.25em;
   background-color: #FFA970;
-  border: 2px solid black;
+  border: none;
+  box-shadow: 1.5px 1.5px 6px;
+}
+.to-do-list__clear-all:hover {
+  background-color: #FF8A3C;
+}
+.to-do-list__clear-all:active {
+  box-shadow: 1px 1px 6px;
 }
 
 /*# sourceMappingURL=style.css.map */
