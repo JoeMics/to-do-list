@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.to-do-list {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.to-do-list__container {
+  background-color: #9381FF;
+}
+
+.to-do-list__input input[type=text] {
+  border-radius: 20px;
+}
+.to-do-list__input input[type=submit] {
+  color: #B8B8FF;
+}
+
+.to-do-list__items input[type=checkbox]:checked {
+  background-color: black;
+}
+
+.to-do-list__items__item__text {
+  display: inline;
+}
+
+/*# sourceMappingURL=style.css.map */
