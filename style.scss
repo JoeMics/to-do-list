@@ -44,6 +44,7 @@ input[type=checkbox] {
 .to-do-list__input__add,
 .to-do-list__items__item__edit {
     color: $light-purple;
+    margin-left: 2em;
 }
 
 .to-do-list {
@@ -72,6 +73,15 @@ input[type=checkbox] {
 
 .to-do-list__items__item {
     align-items: center;
+    padding: 0.1em 0.8em;
+
+    input[type=checkbox] {
+        margin-right: 1.5em;
+    }
+}
+
+.to-do-list__items__item__text{
+    flex-grow: 1;
 }
 
 .to-do-list__items__item__delete {
