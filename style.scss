@@ -13,6 +13,10 @@ $red: #D62828;
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
 
 main,
 .to-do-list,
@@ -35,10 +39,16 @@ input[type=checkbox] {
     }
 }
 
-.to-do-list,
 .to-do-list__input,
 .to-do-list__items {
-    border-radius: 10px;
+    width: 100%;
+}
+
+.to-do-list,
+.to-do-list__input,
+.to-do-list__items,
+.to-do-list__clear-all {
+    border-radius: 0.625rem;
 }
 
 .to-do-list__input__add,
@@ -52,16 +62,21 @@ input[type=checkbox] {
     background-color: $light-purple;
     flex-direction: column;
     align-items: center;
+    padding: 1.5em 3em;
 }
 
 .to-do-list__input {
     height: 2em;
     background-color: $white;
-    margin: 2em 1em 1em 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 
     input[type=text] {
         background: transparent;
+        padding-left: 1em;
         border: none;
+        outline: none;
+        flex-grow: 1;
     }
 }
 
@@ -90,4 +105,7 @@ input[type=checkbox] {
 
 .to-do-list__clear-all {
     align-self: flex-end;
+    padding: 0.5em 1em;
+    background-color: $light-orange;
+    border: 2px solid black;
 }
