@@ -3,41 +3,81 @@ $font-stack: Verdana, Geneva, Tahoma, sans-serif;
 $font-small: 1rem;
 $font-medium: 1.25rem;
 
+$white: #FFF;
 $light-purple: #9381FF;
 $light-blue: #B8B8FF;
 $light-orange: #FFA970;
 $red: #D62828;
 
-
-
 * {
     box-sizing: border-box;
 }
 
-.to-do-list {
-    font-family: $font-stack;
+
+main,
+.to-do-list,
+.to-do-list__input,
+.to-do-list__items__item {
+    display: flex;
 }
 
-.to-do-list__container {
+button,
+input[type=checkbox] {
+    cursor: pointer;
+    outline: none;
+}
+
+.to-do-list__input,
+.to-do-list__items__item {
+    button {
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.to-do-list,
+.to-do-list__input,
+.to-do-list__items {
+    border-radius: 10px;
+}
+
+.to-do-list__input__add,
+.to-do-list__items__item__edit {
+    color: $light-purple;
+}
+
+.to-do-list {
+    font-family: $font-stack;
     background-color: $light-purple;
+    flex-direction: column;
+    align-items: center;
 }
 
 .to-do-list__input {
+    height: 2em;
+    background-color: $white;
+    margin: 2em 1em 1em 1em;
+
     input[type=text] {
-        border-radius: 20px;
-    }
-    
-    input[type=submit] {
-        color: $light-blue;
+        background: transparent;
+        border: none;
     }
 }
 
 .to-do-list__items {
-    input[type=checkbox]:checked {
-        background-color: black;
-    }
+    background-color: $white;
+    list-style: none;
+    padding-left: 0;
 }
 
-.to-do-list__items__item__text {
-    display: inline;
+.to-do-list__items__item {
+    align-items: center;
+}
+
+.to-do-list__items__item__delete {
+    color: $red;
+}
+
+.to-do-list__clear-all {
+    align-self: flex-end;
 }
