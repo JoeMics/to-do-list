@@ -1,11 +1,24 @@
+// creates a DOM element, with following parameters as class names
+function createClassedElement(nodename, ...classNames) {
+    const newElement = document.createElement(nodename);
+
+    classNames.map((className) => {
+        newElement.classList.add(className);
+    })
+
+    return newElement;
+}
 // returns the vale of the text input field
 const parseInput = () => {
     const toDoInput = document.querySelector('#to-do-list__input');
     return toDoInput.value;
 }
 
+
 // returns a string literal for a to do list item
 const createToDoListElement = (string) => {
+    const newToDoListElement = document.createElement('li').classList.add('to-do-list__items__item');
+
     return `
     <li class="to-do-list__items__item">
         <input class="to-do-list__items__item__checkbox" type="checkbox">
@@ -49,7 +62,7 @@ function addCheckboxEvent(toDoListElement) {
     
         this.parentElement.classList.remove('to-do-list__items__item--done');
 
-})};
+})}
 
 
 // temporarily adds event listener on first render
