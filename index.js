@@ -27,6 +27,7 @@ const createToDoListElement = (string) => {
 
     const editButton = createClassedElement('button', 'to-do-list__items__item__edit');
     editButton.appendChild(createClassedElement('i', 'fas', 'fa-edit'));
+    addEditButtonEvent(editButton);
     
     const deleteButton = createClassedElement('button', 'to-do-list__items__item__delete');
     deleteButton.appendChild(createClassedElement('i', 'fas', 'fa-times'));
@@ -71,10 +72,24 @@ function addCheckboxEvent(toDoListElement) {
         this.parentElement.classList.remove('to-do-list__items__item--done');
 })}
 
-function addDeleteButtonEvent (deleteButton){
+function addDeleteButtonEvent (deleteButton) {
     deleteButton.addEventListener('click', function() {
         this.parentElement.remove();
     })
+}
+
+function addEditButtonEvent (eventButton) {
+    eventButton.addEventListener('click', function() {
+        const toDoText = this.previousElementSibling;
+        toDoText.setAttribute('contenteditable', 'true');
+        toDoText.focus();
+
+        console.log(this);
+        toDoText.addEventListener('blur', function() {
+            this.setAttribute('contenteditable', 'false');
+        })
+    })
+
 }
 
 //Clears everything in the to do list
