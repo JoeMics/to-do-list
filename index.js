@@ -30,6 +30,7 @@ const createToDoListElement = (string) => {
     
     const deleteButton = createClassedElement('button', 'to-do-list__items__item__delete');
     deleteButton.appendChild(createClassedElement('i', 'fas', 'fa-times'));
+    addDeleteButtonEvent(deleteButton);
 
     toDoListElementComponents = [checkBoxElement, textElement, editButton, deleteButton];
 
@@ -57,7 +58,6 @@ toDoInputForm.addEventListener('submit', (event) => {
     toDoInputForm.reset();
 })
 
-//when checkbox is checked off, add do-list__items__item--done
 
 function addCheckboxEvent(toDoListElement) {
     const checkbox = toDoListElement.querySelector('.to-do-list__items__item__checkbox');
@@ -66,14 +66,34 @@ function addCheckboxEvent(toDoListElement) {
         if(this.checked) {
             this.parentElement.classList.add('to-do-list__items__item--done');
             return
-        };
+        }
     
         this.parentElement.classList.remove('to-do-list__items__item--done');
 })}
 
+function addDeleteButtonEvent (deleteButton){
+    deleteButton.addEventListener('click', function() {
+        this.parentElement.remove();
+    })
+}
 
-// temporarily adds event listener on first render
-const toDoElems = document.querySelectorAll('.to-do-list__items__item');
-toDoElems.forEach(element => {
-    addCheckboxEvent(element);
+//Clears everything in the to do list
+const clearAllButton = document.querySelector('.to-do-list__clear-all');
+clearAllButton.addEventListener('click', () => {
+    const toDoList = document.querySelector('.to-do-list__items');
+    toDoList.innerHTML = '';
 });
+
+
+//populate the list for testing
+function populateList() {
+
+    for (let i = 0; i < 10; i++) {
+        const toDoElement = createToDoListElement('to-do ' + i);
+    
+        const toDoList = document.querySelector('.to-do-list__items');
+        toDoList.appendChild(toDoElement);
+    }
+}
+
+populateList();
