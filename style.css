@@ -46,7 +46,7 @@ input[type=checkbox] {
 .to-do-list__input__add,
 .to-do-list__items__item__edit {
   color: #9381FF;
-  margin-left: 2em;
+  margin-right: 0.5em;
 }
 
 .to-do-list__input__add:hover,
@@ -66,6 +66,8 @@ input[type=checkbox] {
   flex-direction: column;
   align-items: center;
   padding: 1.5em 3em;
+  margin: 0 auto;
+  margin-top: 3em;
 }
 
 .to-do-list__input {
