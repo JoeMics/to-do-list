@@ -88,7 +88,6 @@ function addEditButtonEvent (eventButton) {
             this.setAttribute('contenteditable', 'false');
         })
     })
-
 }
 
 //Clears everything in the to do list
