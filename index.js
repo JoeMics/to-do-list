@@ -1,25 +1,44 @@
+// creates a DOM element, with following parameters as class names
+function createClassedElement(nodename, ...classNames) {
+    const newElement = document.createElement(nodename);
+
+    classNames.map((className) => {
+        newElement.classList.add(className);
+    })
+
+    return newElement;
+}
+
 // returns the vale of the text input field
 const parseInput = () => {
     const toDoInput = document.querySelector('#to-do-list__input');
     return toDoInput.value;
 }
 
-// returns a string literal for a to do list item
+// returns a DOM element representing a to-do-list item
 const createToDoListElement = (string) => {
-    return `
-    <li class="to-do-list__items__item">
-        <input class="to-do-list__items__item__checkbox" type="checkbox">
-        <p class="to-do-list__items__item__text">${string}</p>  
-        <button class="to-do-list__items__item__edit"><i class="fas fa-edit"></i></button>
-        <button class="to-do-list__items__item__delete"><i class="fas fa-times"></i></button>
-    </li> 
-    `
-}
+    const newToDoListElement = createClassedElement('li', 'to-do-list__items__item');
 
-// Appends a string to the the to do list 
-const appendToDoListElement = (newElem) => {
-    const toDoList = document.querySelector('.to-do-list__items');
-    toDoList.innerHTML += newElem;
+    const checkBoxElement = createClassedElement('input', 'to-do-list__items__item__checkbox');
+    checkBoxElement.setAttribute('type', 'checkbox');
+
+    const textElement = createClassedElement('p', 'to-do-list__items__item__text');
+    textElement.innerText = string;
+
+    const editButton = createClassedElement('button', 'to-do-list__items__item__edit');
+    editButton.appendChild(createClassedElement('i', 'fas', 'fa-edit'));
+    
+    const deleteButton = createClassedElement('button', 'to-do-list__items__item__delete');
+    deleteButton.appendChild(createClassedElement('i', 'fas', 'fa-times'));
+
+    toDoListElementComponents = [checkBoxElement, textElement, editButton, deleteButton];
+
+    toDoListElementComponents.forEach(component => {
+        newToDoListElement.appendChild(component);
+    });
+
+    addCheckboxEvent(newToDoListElement);
+    return newToDoListElement;
 }
 
 // Form handling
@@ -31,7 +50,30 @@ toDoInputForm.addEventListener('submit', (event) => {
     // sanitize input server-side, if communicating w/ backend
 
     const toDoElement = createToDoListElement(toDoInputText);
-    appendToDoListElement(toDoElement);
+
+    const toDoList = document.querySelector('.to-do-list__items');
+    toDoList.appendChild(toDoElement);
 
     toDoInputForm.reset();
 })
+
+//when checkbox is checked off, add do-list__items__item--done
+
+function addCheckboxEvent(toDoListElement) {
+    const checkbox = toDoListElement.querySelector('.to-do-list__items__item__checkbox');
+    
+    checkbox.addEventListener('change', function() {
+        if(this.checked) {
+            this.parentElement.classList.add('to-do-list__items__item--done');
+            return
+        };
+    
+        this.parentElement.classList.remove('to-do-list__items__item--done');
+})}
+
+
+// temporarily adds event listener on first render
+const toDoElems = document.querySelectorAll('.to-do-list__items__item');
+toDoElems.forEach(element => {
+    addCheckboxEvent(element);
+});
