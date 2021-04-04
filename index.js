@@ -28,8 +28,10 @@ toDoInputForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const toDoInputText = parseInput();
-    
-    //function to sanitize input
+    // sanitize input server-side, if communicating w/ backend
+
     const toDoElement = createToDoListElement(toDoInputText);
     appendToDoListElement(toDoElement);
+
+    toDoInputForm.reset();
 })
