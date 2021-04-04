@@ -109,15 +109,19 @@ input[type=checkbox] {
     align-items: center;
     padding: 0.1em 0.8em;
     font-size: $font-small;
-
-    input[type=checkbox] {
-        margin-right: 1.5em;
-    }
 }
 
-.to-do-list__items__item__checkbox {
+input.to-do-list__items__item__checkbox {
+    margin-right: 1.5em;
+    width: $font-small;
+    height: $font-small;
+
+    &::before {
+        border-radius: 3px;
+    }
+
     &:hover {
-        box-shadow: 0.5px 0.5px 2px;
+        background-color: $white;
     }
 }
 

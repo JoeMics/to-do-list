@@ -93,12 +93,17 @@ input[type=checkbox] {
   padding: 0.1em 0.8em;
   font-size: 1.25rem;
 }
-.to-do-list__items__item input[type=checkbox] {
-  margin-right: 1.5em;
-}
 
-.to-do-list__items__item__checkbox:hover {
-  box-shadow: 0.5px 0.5px 2px;
+input.to-do-list__items__item__checkbox {
+  margin-right: 1.5em;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+input.to-do-list__items__item__checkbox::before {
+  border-radius: 3px;
+}
+input.to-do-list__items__item__checkbox:hover {
+  background-color: #FFF;
 }
 
 .to-do-list__items__item__text {
