@@ -110,6 +110,21 @@ input.to-do-list__items__item__checkbox:hover {
   flex-grow: 1;
 }
 
+.to-do-list__items__item--done {
+  background-color: #F5F5F5;
+}
+.to-do-list__items__item--done:first-child {
+  border-top-right-radius: 0.625rem;
+  border-top-left-radius: 0.625rem;
+}
+.to-do-list__items__item--done:last-child {
+  border-bottom-left-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
+}
+.to-do-list__items__item--done .to-do-list__items__item__text {
+  text-decoration: line-through;
+}
+
 .to-do-list__items__item__delete {
   color: #D62828;
 }
