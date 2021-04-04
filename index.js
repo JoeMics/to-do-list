@@ -84,7 +84,6 @@ function addEditButtonEvent (eventButton) {
         toDoText.setAttribute('contenteditable', 'true');
         toDoText.focus();
 
-        console.log(this);
         toDoText.addEventListener('blur', function() {
             this.setAttribute('contenteditable', 'false');
         })
@@ -98,17 +97,3 @@ clearAllButton.addEventListener('click', () => {
     const toDoList = document.querySelector('.to-do-list__items');
     toDoList.innerHTML = '';
 });
-
-
-//populate the list for testing
-function populateList() {
-
-    for (let i = 0; i < 10; i++) {
-        const toDoElement = createToDoListElement('to-do ' + i);
-    
-        const toDoList = document.querySelector('.to-do-list__items');
-        toDoList.appendChild(toDoElement);
-    }
-}
-
-populateList();
