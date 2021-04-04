@@ -35,3 +35,25 @@ toDoInputForm.addEventListener('submit', (event) => {
 
     toDoInputForm.reset();
 })
+
+//when checkbox is checked off, add do-list__items__item--done
+
+function addCheckboxEvent(toDoListElement) {
+    const checkbox = toDoListElement.querySelector('.to-do-list__items__item__checkbox');
+    
+    checkbox.addEventListener('change', function() {
+        if(this.checked) {
+            this.parentElement.classList.add('to-do-list__items__item--done');
+            return
+        };
+    
+        this.parentElement.classList.remove('to-do-list__items__item--done');
+
+})};
+
+
+// temporarily adds event listener on first render
+const toDoElems = document.querySelectorAll('.to-do-list__items__item');
+toDoElems.forEach(element => {
+    addCheckboxEvent(element);
+});
